@@ -1,35 +1,35 @@
 # Termius-cracked
 
-## 破解方法 9.6.1已验证
+## Метод взлома был проверен в версии 9.6.1
 
-安装npm 安装asar
+Установите npm. Установите asar.
 ```shell
 npm config set registry http://mirrors.cloud.tencent.com/npm/
 npm install -g @electron/asar
 ```
 
 ### for Windows
-1. 解包app.asar
+1. Распакуйте app.asar
 ```shell
 cd C:\Users\[XXXXX]\AppData\Local\Programs\Termius\resources
 npx asar extract app.asar ./app
-rm app-update.yml  # 防止自动更新
+rm app-update.yml  # Предотвратить автоматические обновления
 ```
 
 ### for MAC
 
-1. 解包app.asar
+1. Распакуйте app.asar
 ```shell
 cd /Applications/Termius.app/Contents/Resources/
 npx asar extract app.asar ./app
-rm app-update.yml  # 防止自动更新
+rm app-update.yml  # Предотвратить автоматические обновления
 ```
 
-### 修改js
+### Измените js
 
-#### 修改app/background-process/assets/main-xxxxxxx.js
+#### Измените app/background-process/assets/main-xxxxxxx.js
 
-搜索`await this.api.bulkAccount`
+Найдите `await this.api.bulkAccount`
 
 `const e=await this.api.bulkAccount();` -> `var e=await this.api.bulkAccount();`
 
@@ -80,9 +80,9 @@ e.access_objects=[{
 }]
 return .......
 ```
-3. 启动Termius，登录账号，重启Termius
+3. Запустите Termius, войдите в свою учетную запись и перезапустите Termius.
 
 
-### 手动多端同步
-Win存储文件：C:\Users\[XXXXX]\AppData\Roaming\Termius\IndexedDB\file__0.indexeddb.leveldb\000003.log
-Mac存储文件：/Users/[XXXXX]/Library/Application Support/Termius/000003.log
+### Ручная синхронизация нескольких устройств
+Win：C:\Users\[XXXXX]\AppData\Roaming\Termius\IndexedDB\file__0.indexeddb.leveldb\000003.log
+Mac：/Users/[XXXXX]/Library/Application Support/Termius/000003.log
